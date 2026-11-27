@@ -1,1022 +1,215 @@
+```html
+.award strong{display:block;font:500 17px var(--serif);margin-bottom:7px}
+.award p{font-size:12px;color:var(--muted);margin:0;line-height:1.8}
 
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#e9e5dc">
-<meta name="description" content="Jalal Kashani — Scenographer and Production Designer. Theatre, commercial sets, film and visual development.">
-<title>Jalal Kashani — Scenography & Production Design</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-:root{
---paper:#e9e5dc;
---paper-light:#f3f0e9;
---ink:#20201e;
---muted:#77746d;
---line:rgba(32,32,30,.18);
---red:#c64d35;
---red-dark:#9f3928;
---white:#faf8f3;
---serif:"Playfair Display",Georgia,serif;
---sans:"DM Sans",Arial,sans-serif;
---mono:"DM Mono",monospace;
---persian:"Vazirmatn",Tahoma,sans-serif;
---page:min(1240px,calc(100% - 9vw));
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:30px}
-body{
-margin:0;background:var(--paper);color:var(--ink);
-font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden
-}
-body[dir="rtl"]{font-family:var(--persian)}
-a{color:inherit;text-decoration:none}
-button{font:inherit}
-img,svg{max-width:100%}
-::selection{background:var(--red);color:white}
-.container{width:var(--page);margin:auto}
-.eyebrow{font:11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
-body[dir="rtl"] .eyebrow{letter-spacing:0}
-.section{padding:115px 0;border-top:1px solid var(--line)}
-.section-heading{
-display:flex;align-items:flex-end;justify-content:space-between;
-gap:30px;margin-bottom:60px
-}
-.section-heading h2{
-font:500 clamp(42px,6vw,82px)/.98 var(--serif);
-letter-spacing:-.055em;margin:13px 0 0;max-width:750px
-}
-body[dir="rtl"] .section-heading h2{
-font-family:var(--persian);letter-spacing:0;line-height:1.45
-}
-.section-number{font:12px var(--mono);color:var(--muted)}
-.noise{
-position:fixed;inset:0;z-index:20;pointer-events:none;opacity:.045;
-background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.3'/%3E%3C/svg%3E")
-}
-
-/* NAV */
-.nav{
-height:76px;display:flex;align-items:center;justify-content:space-between;
-border-bottom:1px solid var(--line);position:relative;z-index:30
-}
-.brand{font:600 15px var(--mono);letter-spacing:-.04em}
-.nav-links{display:flex;gap:25px;align-items:center}
-.nav-links a{font-size:12px;color:var(--muted);transition:color .2s}
-.nav-links a:hover{color:var(--red)}
-.nav-right{display:flex;align-items:center;gap:15px}
-.language-switch{display:flex;gap:5px}
-.language-switch button{
-border:1px solid transparent;background:transparent;color:var(--muted);
-font:11px var(--mono);padding:7px 8px;cursor:pointer
-}
-.language-switch button.active{color:var(--red);border-color:var(--red)}
-.menu-toggle{display:none;border:0;background:transparent;font-size:23px;cursor:pointer}
-
-/* HERO */
-.hero{min-height:690px;padding:55px 0 75px;position:relative}
-.hero-top{
-display:flex;justify-content:space-between;align-items:center;
-font:11px var(--mono);color:var(--muted)
-}
-.hero-grid{
-display:grid;grid-template-columns:1.05fr .95fr;gap:5vw;
-align-items:center;min-height:520px
-}
-.hero h1{
-font:500 clamp(66px,9.7vw,142px)/.86 var(--serif);
-letter-spacing:-.075em;margin:30px 0;position:relative;z-index:2
-}
-.hero h1 em{color:var(--red);font-weight:500}
-body[dir="rtl"] .hero h1{
-font-family:var(--persian);letter-spacing:0;line-height:1.5
-}
-.hero-description{
-max-width:430px;font-size:15px;line-height:1.9;
-color:var(--muted);margin:30px 0
-}
-.hero-cta{
-display:inline-flex;align-items:center;gap:18px;
-border-bottom:1px solid var(--red);padding-bottom:9px;
-font-size:12px;color:var(--red)
-}
-.hero-visual{
-min-height:480px;position:relative;display:grid;
-place-items:center;overflow:hidden
-}
-.hero-visual:before,.hero-visual:after{
-content:"";aspect-ratio:1;border:1px solid var(--line);
-border-radius:50%;position:absolute
-}
-.hero-visual:before{width:78%}
-.hero-visual:after{width:60%}
-.hero-sketch{width:90%;position:relative;z-index:1;animation:float 7s ease-in-out infinite}
-  .hero-photo{
-width:72%;
-height:440px;
-object-fit:cover;
-object-position:center 35%;
-position:relative;
-z-index:2;
-border-radius:48% 48% 3px 3px;
-border:1px solid rgba(32,32,30,.25);
-box-shadow:18px 18px 0 rgba(198,77,53,.12);
-animation:float 7s ease-in-out infinite;
-}
-
-.portrait-frame img{
-width:100%;
-height:100%;
-object-fit:cover;
-object-position:center 30%;
-display:block;
-}
-.hero-stamp{
-position:absolute;bottom:35px;right:0;font:10px var(--mono);
-color:var(--muted);writing-mode:vertical-rl
-}
-.hero-index{position:absolute;bottom:35px;left:0;font:10px var(--mono);color:var(--muted)}
-body[dir="rtl"] .hero-stamp{right:auto;left:0}
-body[dir="rtl"] .hero-index{left:auto;right:0}
-@keyframes float{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-12px) rotate(1deg)}}
-
-/* MARQUEE */
-.marquee{overflow:hidden;border-block:1px solid var(--line);padding:17px 0;white-space:nowrap}
-.marquee-track{
-display:inline-flex;gap:35px;animation:marquee 32s linear infinite;
-font:11px var(--mono);color:var(--muted);letter-spacing:.12em
-}
-.marquee-track span{color:var(--red)}
-@keyframes marquee{to{transform:translateX(-50%)}}
-
-/* ABOUT */
-.about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:12%}
-.about-aside{padding-top:10px}
-.portrait-frame{
-aspect-ratio:4/5;background:#d8d2c7;position:relative;
-overflow:hidden;display:grid;place-items:center
-}
-.portrait-frame svg{width:85%;height:90%}
-.portrait-caption{display:flex;justify-content:space-between;margin-top:12px;color:var(--muted);font:10px var(--mono)}
-.about-copy h3{
-font:500 clamp(28px,3.5vw,44px)/1.3 var(--serif);
-letter-spacing:-.035em;margin:0 0 28px
-}
-body[dir="rtl"] .about-copy h3{font-family:var(--persian);letter-spacing:0;line-height:1.8}
-.about-copy p{color:#5e5b55;font-size:14px;line-height:2;max-width:680px;margin:0 0 17px}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;border-top:1px solid var(--line);margin-top:45px;padding-top:22px}
-.stat strong{display:block;font:500 42px var(--serif);color:var(--red)}
-.stat span{font:10px var(--mono);color:var(--muted)}
-
-/* PROCESS */
-.story-section{background:var(--ink);color:var(--paper)}
-.story-section .eyebrow{color:#e47b61}
-.story-section .section-number{color:#88847c}
-.story-section .section-heading h2{color:var(--paper)}
-.story-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:9%;align-items:start}
-.story-steps{position:relative}
-.story-step{
-min-height:70vh;display:flex;flex-direction:column;justify-content:center;
-border-top:1px solid rgba(255,255,255,.17);opacity:.35;transition:opacity .5s
-}
-.story-step.active{opacity:1}
-.step-no{font:11px var(--mono);color:#e47b61}
-.story-step h3{font:500 clamp(34px,4vw,54px) var(--serif);margin:22px 0}
-body[dir="rtl"] .story-step h3{font-family:var(--persian);line-height:1.6}
-.story-step p{color:#aaa69d;font-size:13px;line-height:1.9;max-width:340px}
-.story-stage{
-position:sticky;top:13vh;height:72vh;min-height:460px;
-background:#2b2b28;overflow:hidden;display:grid;place-items:center
-}
-.story-art{
-position:absolute;inset:0;display:grid;place-items:center;
-opacity:0;transform:scale(.94);transition:opacity .8s,transform 1.2s
-}
-.story-art.active{opacity:1;transform:scale(1)}
-.story-art svg{width:90%;height:90%}
-.story-caption{
-position:absolute;bottom:22px;left:24px;right:24px;
-display:flex;justify-content:space-between;font:10px var(--mono);
-color:#b6b0a5;z-index:3
-}
-
-/* WORK / VIDEO GALLERY */
-.work-intro{display:flex;justify-content:space-between;align-items:flex-end;gap:25px;margin-bottom:35px}
-.work-intro p{color:var(--muted);font-size:13px;max-width:360px;line-height:1.9}
-.work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:42px 22px}
-.work-card{min-width:0}
-.work-thumb{
-display:block;width:100%;aspect-ratio:16/9;background:#252522;
-overflow:hidden;position:relative;border:0;padding:0;cursor:pointer
-}
-.work-thumb img{
-display:block;width:100%;height:100%;object-fit:cover;
-transition:transform .7s ease,opacity .4s ease
-}
-.work-card:hover .work-thumb img{transform:scale(1.045)}
-.work-thumb:after{
-content:"";position:absolute;inset:0;
-background:linear-gradient(180deg,rgba(0,0,0,.03),rgba(0,0,0,.28));
-pointer-events:none
-}
-.play-button{
-position:absolute;z-index:2;left:50%;top:50%;
-transform:translate(-50%,-50%);width:66px;height:66px;
-border-radius:50%;display:grid;place-items:center;
-background:var(--red);color:white;font-size:22px;padding-left:4px;
-box-shadow:0 5px 25px rgba(0,0,0,.25);transition:transform .3s,background .3s
-}
-.work-card:hover .play-button{transform:translate(-50%,-50%) scale(1.12);background:var(--red-dark)}
-.work-thumb iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:4}
-.work-meta{
-display:flex;justify-content:space-between;align-items:baseline;
-gap:15px;border-bottom:1px solid var(--line);padding:14px 0
-}
-.work-meta h3{font:500 20px var(--serif);margin:0}
-.work-meta span{font:10px var(--mono);color:var(--muted)}
-.work-category{color:var(--muted);font-size:11px;margin-top:9px}
-.text-link{
-display:inline-block;margin-top:38px;color:var(--red);
-border-bottom:1px solid var(--red);padding-bottom:8px;font:11px var(--mono)
-}
-body[dir="rtl"] .work-meta h3{font-family:var(--persian)}
-
-/* THEATRE */
-.theatre-grid{display:grid;grid-template-columns:1fr 1fr;gap:10%}
-.credit-list{border-top:1px solid var(--line)}
-.credit{
-display:grid;grid-template-columns:65px 1fr auto;gap:15px;
-padding:17px 0;border-bottom:1px solid var(--line);align-items:baseline
-}
-.credit .year{font:11px var(--mono);color:var(--red)}
-.credit strong{font:500 17px var(--serif)}
-.credit small{color:var(--muted);font-size:10px;text-align:right}
-body[dir="rtl"] .credit small{text-align:left}
-.award{padding:22px 0;border-bottom:1px solid var(--line)}
-.award-year{font:11px var(--mono);color:var(--red)}
-.award h3{font:500 22px var(--serif);margin:10px 0 7px}
-.award p{color:var(--muted);font-size:12px;line-height:1.8;margin:0}
-
-/* VISUAL LAB */
-.lab-section{background:#dcd6ca}
+/* VISUAL DEVELOPMENT LAB */
 .lab-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-.lab-card{position:relative}
-.lab-image{aspect-ratio:4/5;background:#c9c2b5;overflow:hidden;position:relative}
-.lab-image svg{width:100%;height:100%}
-.lab-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(0,0,0,.4))}
-.lab-label{
-position:absolute;top:18px;left:18px;z-index:2;
-background:var(--paper);color:var(--ink);padding:8px 11px;font:10px var(--mono)
-}
-body[dir="rtl"] .lab-label{left:auto;right:18px}
-.lab-card h3{font:500 27px var(--serif);margin:20px 0 8px}
-body[dir="rtl"] .lab-card h3{font-family:var(--persian)}
-.lab-card p{font-size:12px;line-height:1.9;color:var(--muted);max-width:450px}
+.lab-card{min-height:460px;padding:35px;background:var(--paper-light);position:relative;overflow:hidden}
+.lab-card.ai{background:#d9d3c8}
+.lab-card h3{font:500 clamp(30px,3vw,42px)/1.1 var(--serif);max-width:350px;margin:18px 0}
+.lab-card p{font-size:13px;line-height:1.9;color:var(--muted);max-width:370px}
+.lab-art{position:absolute;inset:auto 0 0;height:52%;display:grid;place-items:center;overflow:hidden}
+.lab-art svg{width:90%;height:100%}
+.lab-label{font:10px var(--mono);color:var(--red);letter-spacing:.1em}
 
 /* PRACTICE */
-.practice-list{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
-.practice-item{padding:25px 15px 25px 0;border-bottom:1px solid var(--line)}
+.practice-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.practice-item{padding:25px 20px;min-height:155px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
 .practice-item span{font:10px var(--mono);color:var(--red)}
-.practice-item h3{font:500 19px var(--serif);margin:16px 0 7px}
-.practice-item p{font-size:11px;color:var(--muted);line-height:1.8;margin:0}
+.practice-item h3{font:500 19px var(--serif);margin:17px 0 7px}
+.practice-item p{font-size:11px;color:var(--muted);line-height:1.7;margin:0}
+body[dir="rtl"] .practice-item h3{font-family:var(--persian)}
 
 /* CONTACT */
-.contact-section{background:var(--red);color:var(--paper)}
-.contact-section .eyebrow{color:#f4c2b3}
-.contact-section h2{
-font:500 clamp(60px,10vw,135px)/.95 var(--serif);
-letter-spacing:-.07em;margin:30px 0 50px;max-width:900px
-}
+.contact-section{background:var(--red);color:var(--paper);padding:110px 0}
+.contact-section .eyebrow{color:rgba(255,255,255,.7)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:10%;align-items:end}
+.contact-section h2{font:500 clamp(52px,8vw,110px)/.95 var(--serif);letter-spacing:-.06em;margin:25px 0}
 body[dir="rtl"] .contact-section h2{font-family:var(--persian);letter-spacing:0;line-height:1.5}
-.contact-bottom{
-display:flex;justify-content:space-between;align-items:flex-end;
-gap:25px;border-top:1px solid rgba(255,255,255,.35);padding-top:22px
-}
-.contact-bottom p{font-size:12px;line-height:1.9;max-width:320px}
-.contact-bottom a{border-bottom:1px solid white;padding-bottom:8px;font:12px var(--mono)}
-footer{background:var(--ink);color:#aaa69d;padding:25px 0;font:10px var(--mono)}
-.footer-inner{display:flex;justify-content:space-between;gap:20px}
+.contact-section p{font-size:14px;line-height:2;color:rgba(255,255,255,.8);max-width:400px}
+.contact-link{display:inline-block;margin-top:25px;border-bottom:1px solid rgba(255,255,255,.7);padding-bottom:10px;font:12px var(--mono)}
+.contact-details{border-top:1px solid rgba(255,255,255,.35)}
+.contact-row{display:flex;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.35);font-size:12px}
+.contact-row span:first-child{color:rgba(255,255,255,.65);font:10px var(--mono)}
+.contact-row a:hover{opacity:.7}
+
+/* FOOTER */
+.footer{padding:25px 0;display:flex;justify-content:space-between;gap:20px;font:10px var(--mono);color:var(--muted)}
+.footer span:last-child{color:var(--red)}
 
 /* REVEAL */
-.reveal{opacity:0;transform:translateY(25px);transition:opacity .8s,transform .8s}
+.reveal{opacity:0;transform:translateY(25px);transition:opacity .8s ease,transform .8s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 
 /* RESPONSIVE */
-@media(max-width:850px){
-:root{--page:min(calc(100% - 40px),680px)}
+@media(max-width:900px){
+:root{--page:min(100% - 44px,700px)}
+.section{padding:85px 0}
+.nav-links{gap:14px}
+.nav-links a{font-size:10px}
+.hero{min-height:auto}
+.hero-grid{grid-template-columns:1fr 1fr;gap:20px;min-height:470px}
+.hero h1{font-size:clamp(58px,10vw,90px)}
+.hero-visual{min-height:390px}
+.hero-photo{height:360px}
+.about-grid{gap:7%}
+.story-layout{gap:5%}
+.practice-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:650px){
+:root{--page:calc(100% - 36px)}
+.section{padding:72px 0}
+.section-heading{margin-bottom:38px;gap:15px}
+.section-heading h2{font-size:48px}
+.nav{height:66px}
+.menu-toggle{display:block}
 .nav-links{
-display:none;position:absolute;top:76px;left:0;right:0;
-background:var(--paper);padding:25px;border-bottom:1px solid var(--line);
-flex-direction:column;align-items:flex-start;gap:20px
+display:none;position:absolute;top:66px;left:0;right:0;
+background:var(--paper);padding:22px;flex-direction:column;
+align-items:flex-start;border-bottom:1px solid var(--line);gap:18px
 }
 .nav-links.open{display:flex}
-.menu-toggle{display:block}
-.hero{padding-top:35px}
-.hero-grid{grid-template-columns:1fr;gap:0}
-.hero h1{font-size:clamp(65px,15vw,105px)}
-.hero-visual{min-height:350px}
-.about-grid,.story-layout,.theatre-grid{grid-template-columns:1fr;gap:45px}
-.about-aside{max-width:370px}
-.story-step{min-height:48vh}
-.story-layout{display:flex;flex-direction:column}
-.story-stage{position:sticky;top:8vh;height:55vh;min-height:330px;width:100%;order:-1}
-.story-steps{width:100%}
-.section{padding:85px 0}
-.section-heading{margin-bottom:42px}
-.practice-list{grid-template-columns:repeat(2,1fr)}
-}
-@media(max-width:560px){
-:root{--page:calc(100% - 32px)}
-.hero{min-height:auto}
-.hero-grid{min-height:auto}
-.hero-visual{min-height:300px}
-.hero-description{font-size:13px}
-.section-heading{align-items:flex-start}
-.section-heading h2{font-size:48px}
+.nav-links a{font-size:13px}
+.nav-right{gap:8px}
+.language-switch button{padding:6px}
+.hero{padding:35px 0 55px}
+.hero-top{font-size:9px}
+.hero-grid{grid-template-columns:1fr;gap:15px;min-height:0}
+.hero h1{font-size:clamp(62px,17vw,100px);margin:45px 0 20px}
+.hero-description{font-size:13px;margin:20px 0}
+.hero-visual{min-height:370px;grid-row:1}
+.hero-photo{width:65%;height:340px}
+.hero-stamp,.hero-index{bottom:15px}
+.about-grid{grid-template-columns:1fr;gap:35px}
+.about-aside{max-width:330px}
+.about-copy h3{font-size:31px}
 .stats{gap:8px}
-.stat strong{font-size:33px}
-.stat span{font-size:9px}
-.work-grid,.lab-grid{grid-template-columns:1fr}
+.stat strong{font-size:32px}
+.stat span{font-size:8px}
+.story-layout{grid-template-columns:1fr;gap:25px}
+.story-stage{position:relative;top:auto;height:430px;min-height:0;grid-row:1}
+.story-step{min-height:260px;padding:30px 0}
+.story-step h3{font-size:35px}
 .work-intro{display:block}
-.credit{grid-template-columns:42px 1fr}
+.work-intro p{margin-top:15px}
+.work-grid{grid-template-columns:1fr;gap:32px}
+.work-meta h3{font-size:18px}
+.theatre-grid{grid-template-columns:1fr;gap:45px}
+.credit{grid-template-columns:48px 1fr;gap:10px}
 .credit small{grid-column:2;text-align:left}
 body[dir="rtl"] .credit small{text-align:right}
-.practice-list{grid-template-columns:1fr 1fr}
+.lab-grid{grid-template-columns:1fr}
+.lab-card{min-height:420px;padding:25px}
+.practice-grid{grid-template-columns:repeat(2,1fr)}
+.practice-item{padding:20px 14px;min-height:145px}
 .practice-item h3{font-size:16px}
+.contact-grid{grid-template-columns:1fr;gap:40px}
+.contact-section{padding:75px 0}
 .contact-section h2{font-size:65px}
-.contact-bottom,.footer-inner{flex-direction:column;align-items:flex-start}
-.play-button{width:55px;height:55px;font-size:19px}
+.footer{font-size:8px;flex-wrap:wrap}
 }
 @media(prefers-reduced-motion:reduce){
-*,*::before,*::after{
-animation-duration:.01ms!important;animation-iteration-count:1!important;
-scroll-behavior:auto!important;transition-duration:.01ms!important
-}
-.reveal{opacity:1;transform:none}
+*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}
 }
 </style>
 </head>
-
 <body>
 <div class="noise"></div>
 
-<header class="container nav">
-<a href="#top" class="brand">JK / STUDIO</a>
-<nav class="nav-links" id="navLinks">
-<a href="#about" data-i18n="navAbout">About</a>
-<a href="#process" data-i18n="navProcess">Process</a>
-<a href="#work" data-i18n="navWork">Selected Work</a>
-<a href="#theatre" data-i18n="navTheatre">Theatre</a>
-<a href="#lab" data-i18n="navLab">Visual Lab</a>
-<a href="#contact" data-i18n="navContact">Contact</a>
-</nav>
-<div class="nav-right">
-<div class="language-switch" aria-label="Choose language">
-<button class="active" data-lang="en">EN</button>
-<button data-lang="fa">FA</button>
-<button data-lang="de">DE</button>
-</div>
-<button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
-</div>
+<header class="container">
+  <nav class="nav">
+    <a class="brand" href="#top">J.K. / STUDIO</a>
+
+    <div class="nav-links" id="navLinks">
+      <a href="#about" data-i18n="navAbout">About</a>
+      <a href="#process" data-i18n="navProcess">Process</a>
+      <a href="#work" data-i18n="navWork">Selected Work</a>
+      <a href="#theatre" data-i18n="navTheatre">Theatre</a>
+      <a href="#lab" data-i18n="navLab">Visual Lab</a>
+      <a href="#contact" data-i18n="navContact">Contact</a>
+    </div>
+
+    <div class="nav-right">
+      <div class="language-switch" aria-label="Choose language">
+        <button type="button" data-lang="en" class="active">EN</button>
+        <button type="button" data-lang="fa">FA</button>
+        <button type="button" data-lang="de">DE</button>
+      </div>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
+    </div>
+  </nav>
 </header>
 
 <main id="top">
+  <!-- HERO -->
+  <section class="hero container">
+    <div class="hero-top">
+      <span data-i18n="heroTop">INDEPENDENT DESIGN PRACTICE</span>
+      <span>TEHRAN / IRAN · AVAILABLE WORLDWIDE</span>
+    </div>
 
-<!-- HERO -->
-<section class="container hero">
-<div class="hero-top">
-<span data-i18n="heroTop">INDEPENDENT DESIGN PRACTICE</span>
-<span>TEHRAN / AVAILABLE WORLDWIDE</span>
-</div>
-<div class="hero-grid">
-<div>
-<div class="eyebrow" data-i18n="heroEyebrow">SCENOGRAPHY · PRODUCTION DESIGN</div>
-<h1 data-i18n="heroTitle">Spaces with<br>a <em>story</em><br>to tell.</h1>
-<p class="hero-description" data-i18n="heroDesc">Jalal Kashani — scenographer and production designer working across theatre, advertising, television and short film.</p>
-<a href="#work" class="hero-cta"><span data-i18n="exploreWork">EXPLORE SELECTED WORK</span><span>↘</span></a>
-</div>
-<div class="hero-visual">
-<svg class="hero-sketch" viewBox="0 0 600 560" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g stroke="#252522" stroke-width="1.4" opacity=".8">
-<path d="M90 445 L90 145 L510 145 L510 445"/>
-<path d="M90 145 L300 55 L510 145"/>
-<path d="M115 170 L300 90 L485 170"/>
-<path d="M125 445 L125 205 L475 205 L475 445"/>
-<path d="M125 205 L300 125 L475 205"/>
-<path d="M165 445 L165 265 L435 265 L435 445"/>
-<path d="M165 265 L300 205 L435 265"/>
-<path d="M195 445 L195 320 L405 320 L405 445"/>
-<path d="M195 320 L300 275 L405 320"/>
-<path d="M300 125 V445 M90 445 H510 M70 460 H530"/>
-</g>
-<g stroke="#c64d35" stroke-width="2" fill="none">
-<path d="M220 445 V350 Q300 290 380 350 V445"/>
-<path d="M235 445 V358 Q300 310 365 358 V445"/>
-<path d="M250 445 V365 Q300 330 350 365 V445"/>
-</g>
-<g fill="#c64d35" font-family="monospace" font-size="11">
-<text x="75" y="110">01 / SPACE</text>
-<text x="425" y="500">STAGE STUDY</text>
-</g>
-</svg>
-<div class="hero-stamp">VISUAL RESEARCH / 001</div>
-<div class="hero-index">FIG. 01 — SPATIAL STUDY</div>
-</div>
-</div>
-</section>
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="eyebrow" data-i18n="heroEyebrow">SCENOGRAPHY · PRODUCTION DESIGN</div>
+        <h1 data-i18n="heroTitle">Spaces<br>with a <em>story</em><br>to tell.</h1>
+        <p class="hero-description" data-i18n="heroDesc">Jalal Kashani — Scenographer and Production Designer for theatre, advertising, television and short films.</p>
+        <a class="hero-cta" href="#work"><span data-i18n="exploreWork">EXPLORE SELECTED WORK</span><span>↘</span></a>
+      </div>
 
-<div class="marquee">
-<div class="marquee-track">
-<span>✳</span> SCENOGRAPHY <span>✳</span> SPATIAL STORYTELLING <span>✳</span> PRODUCTION DESIGN <span>✳</span> VISUAL WORLDS <span>✳</span> THEATRE <span>✳</span> FILM & ADVERTISING <span>✳</span>
-<span>✳</span> SCENOGRAPHY <span>✳</span> SPATIAL STORYTELLING <span>✳</span> PRODUCTION DESIGN <span>✳</span> VISUAL WORLDS <span>✳</span> THEATRE <span>✳</span> FILM & ADVERTISING <span>✳</span>
-</div>
-</div>
+      <div class="hero-visual">
+        <img class="hero-photo" src="Screenshot_20220502-155406_Chrome.jpg" alt="Jalal Kashani portrait">
+      </div>
+    </div>
 
-<!-- ABOUT -->
-<section class="section container" id="about">
-<div class="section-heading reveal">
-<div>
-<div class="eyebrow" data-i18n="aboutEyebrow">01 / THE DESIGNER</div>
-<h2 data-i18n="aboutHeading">A practice built<br>around stories.</h2>
-</div>
-<div class="section-number">01 — 06</div>
-</div>
-<div class="about-grid">
-<aside class="about-aside reveal">
-  <div class="portrait-frame">
-    <img
-      src="Screenshot_20220502-155406_Chrome.jpg"
-      alt="Jalal Kashani"
-      loading="lazy"
-    >
+    <div class="hero-stamp">DESIGN / SPACE / STORY</div>
+    <div class="hero-index">01 — 06</div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>SCENOGRAPHY</span> · PRODUCTION DESIGN · SET & COSTUME · VISUAL DEVELOPMENT · THEATRE · FILM ·
+      <span>SCENOGRAPHY</span> · PRODUCTION DESIGN · SET & COSTUME · VISUAL DEVELOPMENT · THEATRE · FILM ·
+    </div>
   </div>
-</aside>
-<path d="M70 430 C85 335 110 290 200 285 C290 290 315 335 330 430" fill="#b9b1a4" stroke="#373632" stroke-width="2"/>
-<path d="M125 185 C125 110 155 75 205 75 C260 75 280 125 270 205 C265 270 235 300 200 300 C160 300 130 260 125 185Z" fill="#d4cbbd" stroke="#373632" stroke-width="2"/>
-<path d="M122 170 C105 100 150 45 220 60 C270 70 292 110 275 180 C255 130 220 120 180 125 C160 145 145 160 122 170Z" fill="#373632"/>
-<path d="M165 195 H185 M220 195 H240" stroke="#373632" stroke-width="3" stroke-linecap="round"/>
-<path d="M193 205 L185 245 L205 245" stroke="#8a796c" stroke-width="2"/>
-<path d="M175 265 Q200 280 225 265" stroke="#9f3928" stroke-width="2"/>
-<path d="M100 430 L150 315 L200 365 L250 315 L300 430" stroke="#373632" stroke-width="1.5"/>
-<text x="30" y="465" font-family="monospace" font-size="9" fill="#5c574f">PORTRAIT STUDY / PLACEHOLDER</text>
-</svg>
-</div>
-<div class="portrait-caption"><span>JALAL KASHANI</span><span>TEHRAN / IRAN</span></div>
-</aside>
-<div class="about-copy reveal">
-<h3 data-i18n="aboutLead">I design spaces that give stories a physical presence.</h3>
-<p data-i18n="aboutP1">I'm Jalal Kashani, a scenographer and production designer working across theatre, advertising, television and short film. I develop visual environments that support the story, shape atmosphere and respond to the practical demands of production.</p>
-<p data-i18n="aboutP2">My professional journey began in theatre, where I studied stage design and developed an approach to storytelling through space, composition, light, materials and visual atmosphere. Alongside design, I gained hands-on experience in stage and production departments.</p>
-<p data-i18n="aboutP3">My work has expanded into commercial production, short films, live events and visual communication. I collaborate with directors and production teams to translate a creative brief into a clear spatial idea — from early visual direction through the finished set.</p>
-<p data-i18n="aboutP4">Narrative first. Space with purpose. Details that hold the frame.</p>
-<div class="stats">
-<div class="stat"><strong>30+</strong><span data-i18n="stat1">COMMERCIAL PROJECTS</span></div>
-<div class="stat"><strong>10+</strong><span data-i18n="stat2">YEARS IN DESIGN</span></div>
-<div class="stat"><strong>3</strong><span data-i18n="stat3">SHORT FILM PROJECTS</span></div>
-</div>
-</div>
-</div>
-</section>
 
-<!-- PROCESS -->
-<section class="section story-section" id="process">
-<div class="container">
-<div class="section-heading reveal">
-<div><div class="eyebrow" data-i18n="processEyebrow">02 / FROM IDEA TO SPACE</div><h2 data-i18n="processHeading">The architecture<br>of an idea.</h2></div>
-<div class="section-number">02 — 06</div>
-</div>
-<div class="story-layout">
-<div class="story-steps">
-<article class="story-step active" data-step="0">
-<span class="step-no">01 / RESEARCH & SKETCH</span>
-<h3 data-i18n="step1Title">Every space begins with a question.</h3>
-<p data-i18n="step1Desc">The first stage is observation: reading the story, exploring references, drawing relationships and finding the visual language of a space.</p>
-</article>
-<article class="story-step" data-step="1">
-<span class="step-no">02 / SPATIAL DEVELOPMENT</span>
-<h3 data-i18n="step2Title">An idea becomes a structure.</h3>
-<p data-i18n="step2Desc">Sketches evolve into spatial studies, scale, material tests and models. Composition begins to meet practical constraints.</p>
-</article>
-<article class="story-step" data-step="2">
-<span class="step-no">03 / LIGHT & ATMOSPHERE</span>
-<h3 data-i18n="step3Title">The space finds its atmosphere.</h3>
-<p data-i18n="step3Desc">Light, texture, color and perspective turn the design into an environment that can hold a performance, a camera or an audience.</p>
-</article>
-</div>
-<div class="story-stage">
-<div class="story-art active" data-art="0">
-<svg viewBox="0 0 700 600" fill="none">
-<g stroke="#d5cfc3" stroke-width="1.5">
-<path d="M100 470 L100 160 L600 160 L600 470 M100 160 L350 65 L600 160"/>
-<path d="M140 195 L350 115 L560 195 M150 470 L150 240 L550 240 L550 470"/>
-<path d="M150 240 L350 170 L550 240 M200 470 L200 300 L500 300 L500 470"/>
-<path d="M200 300 L350 245 L500 300 M350 170 V470 M100 470 H600"/>
-</g>
-<g stroke="#d56b51" stroke-width="2.5"><path d="M250 470 V345 Q350 275 450 345 V470 M270 470 V350 Q350 300 430 350 V470"/></g>
-<g fill="#d56b51" font-family="monospace" font-size="13"><text x="100" y="115">INITIAL DRAWING</text><text x="490" y="520">01 / 03</text></g>
-</svg>
-</div>
-<div class="story-art" data-art="1">
-<svg viewBox="0 0 700 600" fill="none">
-<path d="M100 420 L350 300 L600 420 L350 545 Z" fill="#756d62" stroke="#e0d8ca" stroke-width="2"/>
-<path d="M100 420 V220 L350 100 V300 Z" fill="#b6aa98" stroke="#e0d8ca" stroke-width="2"/>
-<path d="M350 300 V100 L600 220 V420 Z" fill="#8e8375" stroke="#e0d8ca" stroke-width="2"/>
-<path d="M160 390 V250 L350 160 V300 Z" fill="#d2c6b3" stroke="#2b2b28" stroke-width="2"/>
-<path d="M350 300 V160 L540 250 V390 Z" fill="#a99d8c" stroke="#2b2b28" stroke-width="2"/>
-<path d="M220 430 V325 L350 260 L480 325 V430" stroke="#d56b51" stroke-width="5"/>
-<g fill="#d56b51" font-family="monospace" font-size="13"><text x="100" y="75">SPATIAL MODEL</text><text x="490" y="570">02 / 03</text></g>
-</svg>
-</div>
-<div class="story-art" data-art="2">
-<svg viewBox="0 0 700 600" fill="none">
-<defs><linearGradient id="stageLight" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#e2a57e" stop-opacity=".8"/><stop offset="1" stop-color="#d56b51" stop-opacity="0"/></linearGradient></defs>
-<path d="M110 470 V110 H590 V470 M150 470 V150 H550 V470 M200 470 V205 H500 V470" stroke="#c9c1b4" stroke-width="3"/>
-<path d="M350 110 L230 390 H470 Z" fill="url(#stageLight)"/>
-<path d="M250 470 V345 Q350 260 450 345 V470 M275 470 V350 Q350 290 425 350 V470" stroke="#d56b51" stroke-width="3"/>
-<path d="M70 470 H630 M180 110 L350 40 L520 110" stroke="#c9c1b4" stroke-width="2"/>
-<g fill="#d56b51" font-family="monospace" font-size="13"><text x="110" y="75">BUILT ENVIRONMENT</text><text x="490" y="530">03 / 03</text></g>
-</svg>
-</div>
-<div class="story-caption"><span data-i18n="storyCaption">A DESIGN PROCESS — NOT A FIXED FORM</span><span>SCENOGRAPHY / STUDY</span></div>
-</div>
-</div>
-</div>
-</section>
+  <!-- ABOUT -->
+  <section class="section container" id="about">
+    <div class="section-heading reveal">
+      <div>
+        <div class="eyebrow" data-i18n="aboutEyebrow">01 / THE DESIGNER</div>
+        <h2 data-i18n="aboutHeading">A practice<br>built on stories.</h2>
+      </div>
+      <div class="section-number">01</div>
+    </div>
 
-<!-- SELECTED WORK -->
-<section class="section container" id="work">
-<div class="section-heading reveal">
-<div><div class="eyebrow" data-i18n="workEyebrow">03 / SELECTED SCREEN WORK</div><h2 data-i18n="workHeading">Spaces made<br>for the frame.</h2></div>
-<div class="section-number">03 — 06</div>
-</div>
-<div class="work-intro reveal">
-<p data-i18n="workIntro">A selection of commercial productions and screen projects. Each project explores how space, image and atmosphere work together.</p>
-<span class="eyebrow">COMMERCIAL / FILM / TV</span>
-</div>
+    <div class="about-grid">
+      <aside class="about-aside reveal">
+        <div class="portrait-frame">
+          <img
+            src="Screenshot_20220502-155406_Chrome.jpg"
+            alt="Jalal Kashani"
+            loading="lazy"
+          >
+        </div>
+        <div class="portrait-caption">
+          <span>JALAL KASHANI</span>
+          <span>TEHRAN / IRAN</span>
+        </div>
+      </aside>
 
-<div class="work-grid">
+      <div class="about-copy reveal">
+        <h3 data-i18n="aboutLead">I create spaces that give stories a physical presence.</h3>
+        <p data-i18n="aboutP1">I am Jalal Kashani, a scenographer and production designer working across theatre, advertising, television and short films. My practice focuses on building visual environments that support narrative, shape atmosphere and serve the practical needs of production.</p>
+        <p data-i18n="aboutP2">My professional path began in theatre, where I studied set design and developed an approach to storytelling through space, composition, light, materials and visual atmosphere. I also gained hands-on experience in stage and production departments.</p>
+        <p data-i18n="aboutP3">Over time, my work expanded into commercial productions, short films, live events and visual communication. I collaborate with directors and production teams to translate creative briefs into spatial concepts — from early visual research to the final set.</p>
+        <p data-i18n="aboutP4">Narrative first. Space with intention. Details that stay in the frame.</p>
 
-<article class="work-card reveal">
-<button class="work-thumb" type="button" data-video-id="jmJtwU8wfIM" aria-label="Play X.Vision">
-<img src="https://img.youtube.com/vi/jmJtwU8wfIM/hqdefault.jpg" alt="X.Vision project thumbnail" loading="lazy" onerror="this.src='https://img.youtube.com/vi/jmJtwU8wfIM/0.jpg'">
-<span class="play-button">▶</span>
-</button>
-<div class="work-meta"><h3>X.Vision</h3><span>SCREEN WORK / 01</span></div>
-<div class="work-category" data-i18n="categoryCommercial">Commercial production</div>
-</article>
-
-<article class="work-card reveal">
-<button class="work-thumb" type="button" data-video-id="SpqO91xdm1k" aria-label="Play X.Vision Project 05">
-<img src="https://img.youtube.com/vi/SpqO91xdm1k/hqdefault.jpg" alt="X.Vision Project 05 thumbnail" loading="lazy" onerror="this.src='https://img.youtube.com/vi/SpqO91xdm1k/0.jpg'">
-<span class="play-button">▶</span>
-</button>
-<div class="work-meta"><h3>X.Vision — Project 05</h3><span>SCREEN WORK / 02</span></div>
-<div class="work-category" data-i18n="categoryCommercial">Commercial production</div>
-</article>
-
-<article class="work-card reveal">
-<button class="work-thumb" type="button" data-video-id="CWKdlvfEY44" aria-label="Play Karabiz">
-<img src="https://img.youtube.com/vi/CWKdlvfEY44/hqdefault.jpg" alt="Karabiz thumbnail" loading="lazy" onerror="this.src='https://img.youtube.com/vi/CWKdlvfEY44/0.jpg'">
-<span class="play-button">▶</span>
-</button>
-<div class="work-meta"><h3>Karabiz</h3><span>SCREEN WORK / 03</span></div>
-<div class="work-category" data-i18n="categoryCommercial">Commercial production</div>
-</article>
-
-<article class="work-card reveal">
-<button class="work-thumb" type="button" data-video-id="eXyxi8PNCfY" aria-label="Play Cheetoz">
-<img src="https://img.youtube.com/vi/eXyxi8PNCfY/hqdefault.jpg" alt="Cheetoz thumbnail" loading="lazy" onerror="this.src='https://img.youtube.com/vi/eXyxi8PNCfY/0.jpg'">
-<span class="play-button">▶</span>
-</button>
-<div class="work-meta"><h3>Cheetoz</h3><span>SCREEN WORK / 04</span></div>
-<div class="work-category" data-i18n="categoryCommercial">Commercial production</div>
-</article>
-
-<article class="work-card reveal">
-<button class="work-thumb" type="button" data-video-id="UWsLPwR2eRo" aria-label="Play Savin Pasta">
-<img src="https://img.youtube.com/vi/UWsLPwR2eRo/hqdefault.jpg" alt="Savin Pasta thumbnail" loading="lazy" onerror="this.src='https://img.youtube.com/vi/UWsLPwR2eRo/0.jpg'">
-<span class="play-button">▶</span>
-</button>
-<div class="work-meta"><h3>Savin Pasta</h3><span>SCREEN WORK / 05</span></div>
-<div class="work-category" data-i18n="categoryCommercial">Commercial production</div>
-</article>
-
-<article class="work-card reveal">
-<button class="work-thumb" type="button" data-video-id="8UR3t3tT4Vo" aria-label="Play Arva">
-<img src="https://img.youtube.com/vi/8UR3t3tT4Vo/hqdefault.jpg" alt="Arva thumbnail" loading="lazy" onerror="this.src='https://img.youtube.com/vi/8UR3t3tT4Vo/0.jpg'">
-<span class="play-button">▶</span>
-</button>
-<div class="work-meta"><h3>Arva</h3><span>SCREEN WORK / 06</span></div>
-<div class="work-category" data-i18n="categoryCommercial">Commercial production</div>
-</article>
-
-<article class="work-card reveal">
-<button class="work-thumb" type="button" data-video-id="Hb6EPU_Qvlk" aria-label="Play Multich">
-<img src="https://img.youtube.com/vi/Hb6EPU_Qvlk/hqdefault.jpg" alt="Multich thumbnail" loading="lazy" onerror="this.src='https://img.youtube.com/vi/Hb6EPU_Qvlk/0.jpg'">
-<span class="play-button">▶</span>
-</button>
-<div class="work-meta"><h3>Multich</h3><span>SCREEN WORK / 07</span></div>
-<div class="work-category" data-i18n="categoryCommercial">Commercial production</div>
-</article>
-
-<article class="work-card reveal">
-<button class="work-thumb" type="button" data-video-id="xq_RuD1Wiz4" aria-label="Play Azki Behind the Scenes">
-<img src="https://img.youtube.com/vi/xq_RuD1Wiz4/hqdefault.jpg" alt="Azki behind the scenes thumbnail" loading="lazy" onerror="this.src='https://img.youtube.com/vi/xq_RuD1Wiz4/0.jpg'">
-<span class="play-button">▶</span>
-</button>
-<div class="work-meta"><h3>Azki — Behind the Scenes</h3><span>SCREEN WORK / 08</span></div>
-<div class="work-category" data-i18n="categoryBts">Behind the scenes</div>
-</article>
-
-<article class="work-card reveal">
-<button class="work-thumb" type="button" data-video-id="7YfxciBN9qI" aria-label="Play Nature Fencing">
-<img src="https://img.youtube.com/vi/7YfxciBN9qI/hqdefault.jpg" alt="Nature Fencing thumbnail" loading="lazy" onerror="this.src='https://img.youtube.com/vi/7YfxciBN9qI/0.jpg'">
-<span class="play-button">▶</span>
-</button>
-<div class="work-meta"><h3>Nature — Fencing</h3><span>SCREEN WORK / 09</span></div>
-<div class="work-category" data-i18n="categoryCommercial">Commercial production</div>
-</article>
-
-<article class="work-card reveal">
-<button class="work-thumb" type="button" data-video-id="PlsfXsOLxhc" aria-label="Play Asiyeh">
-<img src="https://img.youtube.com/vi/PlsfXsOLxhc/hqdefault.jpg" alt="Asiyeh short film thumbnail" loading="lazy" onerror="this.src='https://img.youtube.com/vi/PlsfXsOLxhc/0.jpg'">
-<span class="play-button">▶</span>
-</button>
-<div class="work-meta"><h3>Asiyeh</h3><span>SCREEN WORK / 10</span></div>
-<div class="work-category" data-i18n="categoryFilm">Short film</div>
-</article>
-
-</div>
-<a href="https://www.youtube.com/" target="_blank" rel="noopener" class="text-link" data-i18n="moreWork">MORE PROJECTS ON YOUTUBE ↗</a>
-</section>
-
-<!-- THEATRE -->
-<section class="section container" id="theatre">
-<div class="section-heading reveal">
-<div><div class="eyebrow" data-i18n="theatreEyebrow">04 / THEATRE & SCENOGRAPHY</div><h2 data-i18n="theatreHeading">The stage as<br>a living world.</h2></div>
-<div class="section-number">04 — 06</div>
-</div>
-<div class="theatre-grid">
-<div>
-<div class="eyebrow" data-i18n="selectedCredits">SELECTED CREDITS</div>
-<div class="credit-list">
-<div class="credit"><span class="year">2009</span><strong data-i18n="play1">Sun of Ashes</strong><small data-i18n="assistantDesign">Assistant Set & Lighting Design</small></div>
-<div class="credit"><span class="year">2010</span><strong data-i18n="play2">Unfulfilled Anxieties</strong><small data-i18n="setLighting">Set & Lighting Design</small></div>
-<div class="credit"><span class="year">2012</span><strong>Station</strong><small data-i18n="setDesign">Set Design</small></div>
-<div class="credit"><span class="year">2013</span><strong>Farewell</strong><small data-i18n="setDesign">Set Design</small></div>
-<div class="credit"><span class="year">2014</span><strong>Hom Music Group Concert</strong><small data-i18n="setDesign">Set Design</small></div>
-<div class="credit"><span class="year">2015</span><strong>Vangloud</strong><small data-i18n="setDesign">Set Design</small></div>
-<div class="credit"><span class="year">2017</span><strong>Economic Intelligence</strong><small data-i18n="setDesign">Set Design</small></div>
-</div>
-</div>
-<div>
-<div class="eyebrow" data-i18n="recognition">RECOGNITION</div>
-<div class="award"><span class="award-year">2017 / 35TH EDITION</span><h3 data-i18n="award1">Fajr International Theatre Festival</h3><p data-i18n="award1Desc">Selected for Set Design.</p></div>
-<div class="award"><span class="award-year">2012</span><h3 data-i18n="award2">Theatre of the City Festival</h3><p data-i18n="award2Desc">Selected for Set Design — Station.</p></div>
-<div class="award"><span class="award-year">2017</span><h3 data-i18n="award3">Shahr-o-Mehr Festival / Kashan</h3><p data-i18n="award3Desc">Selected for Set Design — Economic Intelligence.</p></div>
-</div>
-</div>
-</section>
-
-<!-- VISUAL LAB -->
-<section class="section lab-section" id="lab">
-<div class="container">
-<div class="section-heading reveal">
-<div><div class="eyebrow" data-i18n="labEyebrow">05 / VISUAL DEVELOPMENT LAB</div><h2 data-i18n="labHeading">Two ways of<br>imagining space.</h2></div>
-<div class="section-number">05 — 06</div>
-</div>
-<div class="lab-grid">
-<article class="lab-card reveal">
-<div class="lab-image">
-<span class="lab-label" data-i18n="handmadeLabel">01 / HANDMADE</span>
-<svg viewBox="0 0 500 620" fill="none">
-<rect width="500" height="620" fill="#c7c0b3"/>
-<g stroke="#373632" stroke-width="1.4" opacity=".9">
-<path d="M65 500 L65 150 L435 150 L435 500 M65 150 L250 65 L435 150"/>
-<path d="M100 190 L250 120 L400 190 M110 500 V235 H390 V500 M110 235 L250 175 L390 235"/>
-<path d="M160 500 V300 H340 V500 M160 300 L250 260 L340 300 M250 175 V500 M60 520 H440"/>
-</g>
-<g stroke="#a34431" stroke-width="2"><path d="M180 500 V365 Q250 300 320 365 V500 M195 500 V370 Q250 325 305 370 V500"/></g>
-<g fill="#373632" font-family="monospace" font-size="10"><text x="35" y="40">PENCIL / INK / PAPER</text><text x="330" y="565">STUDY 001</text></g>
-</svg>
-<div class="lab-overlay"></div>
-</div>
-<h3 data-i18n="handmadeTitle">Handmade explorations</h3>
-<p data-i18n="handmadeDesc">Drawing, sketching, spatial thinking and material studies. The first language of a design often begins by hand.</p>
-</article>
-<article class="lab-card reveal">
-<div class="lab-image">
-<span class="lab-label" data-i18n="aiLabel">02 / AI-ASSISTED</span>
-<svg viewBox="0 0 500 620" fill="none">
-<defs>
-<linearGradient id="aiBg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#252b2e"/><stop offset="1" stop-color="#796c61"/></linearGradient>
-<linearGradient id="aiBeam" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#f1c39a" stop-opacity=".8"/><stop offset="1" stop-color="#e0a37d" stop-opacity="0"/></linearGradient>
-</defs>
-<rect width="500" height="620" fill="url(#aiBg)"/>
-<path d="M250 50 L100 500 H400 Z" fill="url(#aiBeam)"/>
-<path d="M65 500 V145 H435 V500 M105 500 V190 H395 V500 M155 500 V260 H345 V500" stroke="#d8c5ae" stroke-width="2"/>
-<path d="M190 500 V340 Q250 270 310 340 V500" stroke="#d56b51" stroke-width="4"/>
-<path d="M210 500 V345 Q250 300 290 345 V500" stroke="#d56b51" stroke-width="2"/>
-<path d="M50 500 H450 M250 50 V230 M180 75 L150 250 M320 75 L350 250" stroke="#f1c39a" stroke-width="1"/>
-<g fill="#f1c39a" font-family="monospace" font-size="10"><text x="28" y="38">AI / VISUAL DEVELOPMENT</text><text x="350" y="570">STUDY 002</text></g>
-</svg>
-<div class="lab-overlay"></div>
-</div>
-<h3 data-i18n="aiTitle">AI-assisted visual development</h3>
-<p data-i18n="aiDesc">Exploring atmosphere, lighting, visual references and alternative directions through generative tools — as part of a designer-led process.</p>
-</article>
-</div>
-</div>
-</section>
-
-<!-- PRACTICE -->
-<section class="section container" id="practice">
-<div class="section-heading reveal">
-<div><div class="eyebrow" data-i18n="practiceEyebrow">06 / AREAS OF PRACTICE</div><h2 data-i18n="practiceHeading">From concept<br>to experience.</h2></div>
-<div class="section-number">06 — 06</div>
-</div>
-<div class="practice-list reveal">
-<div class="practice-item"><span>01</span><h3 data-i18n="practice1">Scenography</h3><p data-i18n="practice1Desc">Theatre / performance / stage environments</p></div>
-<div class="practice-item"><span>02</span><h3 data-i18n="practice2">Production Design</h3><p data-i18n="practice2Desc">Film / television / commercial sets</p></div>
-<div class="practice-item"><span>03</span><h3 data-i18n="practice3">Visual Development</h3><p data-i18n="practice3Desc">Concepts / references / visual direction</p></div>
-<div class="practice-item"><span>04</span><h3 data-i18n="practice4">Spatial Design</h3><p data-i18n="practice4Desc">Installation / events / environments</p></div>
-<div class="practice-item"><span>05</span><h3 data-i18n="practice5">Set Construction</h3><p data-i18n="practice5Desc">Materials / fabrication / production</p></div>
-<div class="practice-item"><span>06</span><h3 data-i18n="practice6">Lighting & Atmosphere</h3><p data-i18n="practice6Desc">Light / texture / spatial mood</p></div>
-<div class="practice-item"><span>07</span><h3 data-i18n="practice7">Graphic & Visual Design</h3><p data-i18n="practice7Desc">Identity / graphic communication</p></div>
-<div class="practice-item"><span>08</span><h3 data-i18n="practice8">3D & Digital Spaces</h3><p data-i18n="practice8Desc">3D environments / digital experiences</p></div>
-</div>
-</section>
-
-<!-- CONTACT -->
-<section class="section contact-section" id="contact">
-<div class="container">
-<div class="eyebrow" data-i18n="contactEyebrow">LET'S BUILD A WORLD</div>
-<h2 data-i18n="contactHeading">Have a story<br>to tell?</h2>
-<div class="contact-bottom">
-<p data-i18n="contactDesc">For collaborations, academic opportunities and creative projects, get in touch.</p>
-<a href="mailto:jalal.ch.kashani@gmail.com" data-i18n="contactLink">START A CONVERSATION ↗</a>
-</div>
-</div>
-</section>
-</main>
-
-<footer>
-<div class="container footer-inner">
-<span>© <span id="year"></span> JALAL KASHANI</span>
-<span>SCENOGRAPHY / PRODUCTION DESIGN</span>
-<a href="#top">BACK TO TOP ↑</a>
-</div>
-</footer>
-
-<script>
-const translations={
-en:{
-navAbout:"About",navProcess:"Process",navWork:"Selected Work",navTheatre:"Theatre",navLab:"Visual Lab",navContact:"Contact",
-heroTop:"INDEPENDENT DESIGN PRACTICE",heroEyebrow:"SCENOGRAPHY · PRODUCTION DESIGN",
-heroTitle:'Spaces with<br>a <em>story</em><br>to tell.',
-heroDesc:"Jalal Kashani — scenographer and production designer working across theatre, advertising, television and short film.",
-exploreWork:"EXPLORE SELECTED WORK",
-aboutEyebrow:"01 / THE DESIGNER",aboutHeading:"A practice built<br>around stories.",
-aboutLead:"I design spaces that give stories a physical presence.",
-aboutP1:"I'm Jalal Kashani, a scenographer and production designer working across theatre, advertising, television and short film. I develop visual environments that support the story, shape atmosphere and respond to the practical demands of production.",
-aboutP2:"My professional journey began in theatre, where I studied stage design and developed an approach to storytelling through space, composition, light, materials and visual atmosphere. Alongside design, I gained hands-on experience in stage and production departments.",
-aboutP3:"My work has expanded into commercial production, short films, live events and visual communication. I collaborate with directors and production teams to translate a creative brief into a clear spatial idea — from early visual direction through the finished set.",
-aboutP4:"Narrative first. Space with purpose. Details that hold the frame.",
-stat1:"COMMERCIAL PROJECTS",stat2:"YEARS IN DESIGN",stat3:"SHORT FILM PROJECTS",
-processEyebrow:"02 / FROM IDEA TO SPACE",processHeading:"The architecture<br>of an idea.",
-step1Title:"Every space begins with a question.",step1Desc:"The first stage is observation: reading the story, exploring references, drawing relationships and finding the visual language of a space.",
-step2Title:"An idea becomes a structure.",step2Desc:"Sketches evolve into spatial studies, scale, material tests and models. Composition begins to meet practical constraints.",
-step3Title:"The space finds its atmosphere.",step3Desc:"Light, texture, color and perspective turn the design into an environment that can hold a performance, a camera or an audience.",
-storyCaption:"A DESIGN PROCESS — NOT A FIXED FORM",
-workEyebrow:"03 / SELECTED SCREEN WORK",workHeading:"Spaces made<br>for the frame.",
-workIntro:"A selection of commercial productions and screen projects. Each project explores how space, image and atmosphere work together.",
-categoryCommercial:"Commercial production",categoryBts:"Behind the scenes",categoryFilm:"Short film",
-moreWork:"MORE PROJECTS ON YOUTUBE ↗",
-theatreEyebrow:"04 / THEATRE & SCENOGRAPHY",theatreHeading:"The stage as<br>a living world.",
-selectedCredits:"SELECTED CREDITS",recognition:"RECOGNITION",
-play1:"Sun of Ashes",play2:"Unfulfilled Anxieties",
-assistantDesign:"Assistant Set & Lighting Design",setLighting:"Set & Lighting Design",setDesign:"Set Design",
-award1:"Fajr International Theatre Festival",award1Desc:"Selected for Set Design.",
-award2:"Theatre of the City Festival",award2Desc:"Selected for Set Design — Station.",
-award3:"Shahr-o-Mehr Festival / Kashan",award3Desc:"Selected for Set Design — Economic Intelligence.",
-labEyebrow:"05 / VISUAL DEVELOPMENT LAB",labHeading:"Two ways of<br>imagining space.",
-handmadeLabel:"01 / HANDMADE",aiLabel:"02 / AI-ASSISTED",
-handmadeTitle:"Handmade explorations",handmadeDesc:"Drawing, sketching, spatial thinking and material studies. The first language of a design often begins by hand.",
-aiTitle:"AI-assisted visual development",aiDesc:"Exploring atmosphere, lighting, visual references and alternative directions through generative tools — as part of a designer-led process.",
-practiceEyebrow:"06 / AREAS OF PRACTICE",practiceHeading:"From concept<br>to experience.",
-practice1:"Scenography",practice1Desc:"Theatre / performance / stage environments",
-practice2:"Production Design",practice2Desc:"Film / television / commercial sets",
-practice3:"Visual Development",practice3Desc:"Concepts / references / visual direction",
-practice4:"Spatial Design",practice4Desc:"Installation / events / environments",
-practice5:"Set Construction",practice5Desc:"Materials / fabrication / production",
-practice6:"Lighting & Atmosphere",practice6Desc:"Light / texture / spatial mood",
-practice7:"Graphic & Visual Design",practice7Desc:"Identity / graphic communication",
-practice8:"3D & Digital Spaces",practice8Desc:"3D environments / digital experiences",
-contactEyebrow:"LET'S BUILD A WORLD",contactHeading:"Have a story<br>to tell?",
-contactDesc:"For collaborations, academic opportunities and creative projects, get in touch.",
-contactLink:"START A CONVERSATION ↗"
-},
-fa:{
-navAbout:"درباره من",navProcess:"فرآیند طراحی",navWork:"منتخب آثار",navTheatre:"تئاتر",navLab:"آزمایشگاه بصری",navContact:"ارتباط",
-heroTop:"رویکرد مستقل طراحی",heroEyebrow:"طراحی صحنه · طراحی تولید",
-heroTitle:"فضاهایی<br>برای روایت<br><em>یک داستان.</em>",
-heroDesc:"جلال کاشانی — طراح صحنه و طراح تولید در حوزه تئاتر، تبلیغات، تلویزیون و فیلم کوتاه.",
-exploreWork:"مشاهده آثار منتخب",
-aboutEyebrow:"۰۱ / طراح",aboutHeading:"رویکردی بر پایه<br>روایت و فضا.",
-aboutLead:"من فضاهایی طراحی می‌کنم که به داستان‌ها حضوری ملموس می‌بخشند.",
-aboutP1:"من جلال کاشانی هستم؛ طراح صحنه و طراح تولید در حوزه تئاتر، تبلیغات، تلویزیون و فیلم کوتاه. محیط‌های بصری را با هدف پشتیبانی از روایت، شکل‌دادن به اتمسفر و پاسخ‌گویی به نیازهای اجرایی تولید توسعه می‌دهم.",
-aboutP2:"مسیر حرفه‌ای من از تئاتر آغاز شد؛ جایی که طراحی صحنه را آموختم و نگاه خود را به روایت از طریق فضا، ترکیب‌بندی، نور، متریال و اتمسفر بصری شکل دادم. در کنار طراحی، تجربه عملی در بخش‌های صحنه و تولید نیز به دست آوردم.",
-aboutP3:"دامنه فعالیت من به تولیدات تبلیغاتی، فیلم کوتاه، رویدادهای زنده و ارتباطات بصری گسترش یافته است. در همکاری با کارگردانان و گروه‌های تولید، ایده و شرح پروژه را به یک طرح فضایی روشن تبدیل می‌کنم؛ از شکل‌گیری مسیر بصری تا اجرای نهایی صحنه.",
-aboutP4:"اول روایت. فضا با هدف. جزئیاتی که در قاب می‌مانند.",
-stat1:"پروژه تبلیغاتی",stat2:"سال تجربه طراحی",stat3:"پروژه فیلم کوتاه",
-processEyebrow:"۰۲ / از ایده تا فضا",processHeading:"معماری یک ایده.",
-step1Title:"هر فضا با یک پرسش آغاز می‌شود.",step1Desc:"مرحله نخست مشاهده و پژوهش است: خواندن روایت، بررسی منابع بصری، ترسیم ارتباط‌ها و یافتن زبان بصری فضا.",
-step2Title:"ایده به ساختار تبدیل می‌شود.",step2Desc:"اسکیس‌ها به مطالعات فضایی، مقیاس، آزمون متریال و ماکت تبدیل می‌شوند. ترکیب‌بندی با محدودیت‌های اجرایی روبه‌رو می‌شود.",
-step3Title:"فضا به اتمسفر خود می‌رسد.",step3Desc:"نور، بافت، رنگ و پرسپکتیو، طرح را به محیطی تبدیل می‌کنند که می‌تواند میزبان اجرا، دوربین یا مخاطب باشد.",
-storyCaption:"فرآیند طراحی — نه یک فرم ثابت",
-workEyebrow:"۰۳ / منتخب آثار تصویری",workHeading:"فضاهایی برای<br>قرار گرفتن در قاب.",
-workIntro:"گزیده‌ای از پروژه‌های تبلیغاتی و آثار تصویری؛ تجربه‌هایی از ارتباط میان فضا، تصویر و اتمسفر.",
-categoryCommercial:"تولید تبلیغاتی",categoryBts:"پشت صحنه",categoryFilm:"فیلم کوتاه",
-moreWork:"مشاهده پروژه‌های بیشتر در یوتیوب ↗",
-theatreEyebrow:"۰۴ / تئاتر و طراحی صحنه",theatreHeading:"صحنه به‌مثابه<br>یک جهان زنده.",
-selectedCredits:"گزیده سوابق",recognition:"جوایز و تقدیرها",
-play1:"خورشید خاکستر",play2:"دلواپسی‌های بی‌فرجام",
-assistantDesign:"دستیار طراحی صحنه و نور",setLighting:"طراحی صحنه و نور",setDesign:"طراحی صحنه",
-award1:"سی‌وپنجمین جشنواره بین‌المللی تئاتر فجر",award1Desc:"انتخاب در بخش طراحی صحنه.",
-award2:"نخستین جشنواره تئاتر شهر",award2Desc:"انتخاب در بخش طراحی صحنه برای نمایش ایستگاه.",
-award3:"جشنواره شهر و مهر / کاشان",award3Desc:"انتخاب در بخش طراحی صحنه برای نمایش هوش اقتصادی.",
-labEyebrow:"۰۵ / آزمایشگاه توسعه بصری",labHeading:"دو مسیر برای<br>تصور فضا.",
-handmadeLabel:"۰۱ / طراحی دستی",aiLabel:"۰۲ / با کمک هوش مصنوعی",
-handmadeTitle:"جست‌وجوهای دستی",handmadeDesc:"طراحی، اسکیس، تفکر فضایی و مطالعات متریال. زبان اولیه بسیاری از طرح‌ها با دست شکل می‌گیرد.",
-aiTitle:"توسعه بصری با کمک هوش مصنوعی",aiDesc:"بررسی اتمسفر، نورپردازی، منابع بصری و مسیرهای جایگزین با ابزارهای مولد؛ در چارچوب فرآیندی که هدایت آن بر عهده طراح است.",
-practiceEyebrow:"۰۶ / حوزه‌های فعالیت",practiceHeading:"از مفهوم تا تجربه.",
-practice1:"طراحی صحنه",practice1Desc:"تئاتر / اجرا / محیط‌های نمایشی",
-practice2:"طراحی تولید",practice2Desc:"فیلم / تلویزیون / تبلیغات",
-practice3:"توسعه بصری",practice3Desc:"کانسپت / رفرنس / مسیر بصری",
-practice4:"طراحی فضا",practice4Desc:"اینستالیشن / رویداد / محیط",
-practice5:"ساخت دکور",practice5Desc:"متریال / ساخت / اجرا",
-practice6:"نور و اتمسفر",practice6Desc:"نور / بافت / حال‌وهوای فضا",
-practice7:"طراحی گرافیک",practice7Desc:"هویت بصری / ارتباطات گرافیکی",
-practice8:"فضاهای سه‌بعدی و دیجیتال",practice8Desc:"محیط سه‌بعدی / تجربه دیجیتال",
-contactEyebrow:"بیایید جهانی بسازیم",contactHeading:"داستانی برای<br>روایت داری؟",
-contactDesc:"برای همکاری‌های حرفه‌ای، فرصت‌های دانشگاهی و پروژه‌های خلاقانه با من در ارتباط باشید.",
-contactLink:"شروع یک گفت‌وگو ↗"
-},
-de:{
-navAbout:"Über mich",navProcess:"Arbeitsprozess",navWork:"Ausgewählte Arbeiten",navTheatre:"Theater",navLab:"Visual Lab",navContact:"Kontakt",
-heroTop:"UNABHÄNGIGE DESIGNPRAXIS",heroEyebrow:"SZENOGRAFIE · PRODUKTIONSDESIGN",
-heroTitle:"Räume mit<br>einer <em>Geschichte</em><br>zu erzählen.",
-heroDesc:"Jalal Kashani — Szenograf und Production Designer für Theater, Werbung, Fernsehen und Kurzfilm.",
-exploreWork:"AUSGEWÄHLTE ARBEITEN",
-aboutEyebrow:"01 / DER DESIGNER",aboutHeading:"Eine Praxis,<br>die Geschichten erzählt.",
-aboutLead:"Ich gestalte Räume, die Geschichten eine physische Präsenz verleihen.",
-aboutP1:"Ich bin Jalal Kashani, Szenograf und Production Designer mit Arbeitsschwerpunkten in Theater, Werbung, Fernsehen und Kurzfilm. Ich entwickle visuelle Umgebungen, die die Erzählung unterstützen, Atmosphäre schaffen und den praktischen Anforderungen einer Produktion gerecht werden.",
-aboutP2:"Mein beruflicher Weg begann im Theater. Dort studierte ich Bühnenbild und entwickelte meinen Zugang zum Erzählen durch Raum, Komposition, Licht, Materialien und visuelle Atmosphäre. Zusätzlich sammelte ich praktische Erfahrungen in Bühnen- und Produktionsabteilungen.",
-aboutP3:"Meine Arbeit umfasst inzwischen auch Werbeproduktionen, Kurzfilme, Live-Events und visuelle Kommunikation. Gemeinsam mit Regie und Produktion übersetze ich kreative Vorgaben in räumliche Konzepte — von der ersten visuellen Idee bis zum fertigen Set.",
-aboutP4:"Die Erzählung zuerst. Raum mit Absicht. Details, die im Bild bleiben.",
-stat1:"WERBEPROJEKTE",stat2:"JAHRE DESIGNERFAHRUNG",stat3:"KURZFILMPROJEKTE",
-processEyebrow:"02 / VON DER IDEE ZUM RAUM",processHeading:"Die Architektur<br>einer Idee.",
-step1Title:"Jeder Raum beginnt mit einer Frage.",step1Desc:"Am Anfang stehen Beobachtung und Recherche: die Geschichte verstehen, Referenzen untersuchen und die visuelle Sprache des Raumes finden.",
-step2Title:"Eine Idee wird zur Struktur.",step2Desc:"Skizzen entwickeln sich zu räumlichen Studien, Maßstäben, Materialtests und Modellen. Die Komposition trifft auf praktische Anforderungen.",
-step3Title:"Der Raum findet seine Atmosphäre.",step3Desc:"Licht, Textur, Farbe und Perspektive verwandeln den Entwurf in eine Umgebung für Aufführung, Kamera oder Publikum.",
-storyCaption:"EIN GESTALTUNGSPROZESS — KEINE STARRE FORM",
-workEyebrow:"03 / AUSGEWÄHLTE FILM- UND SCREENARBEITEN",workHeading:"Räume für<br>das Bild.",
-workIntro:"Eine Auswahl von Werbeproduktionen und Filmprojekten. Jedes Projekt untersucht das Zusammenspiel von Raum, Bild und Atmosphäre.",
-categoryCommercial:"Werbeproduktion",categoryBts:"Hinter den Kulissen",categoryFilm:"Kurzfilm",
-moreWork:"WEITERE PROJEKTE AUF YOUTUBE ↗",
-theatreEyebrow:"04 / THEATER & SZENOGRAFIE",theatreHeading:"Die Bühne als<br>lebendige Welt.",
-selectedCredits:"AUSGEWÄHLTE ARBEITEN",recognition:"AUSZEICHNUNGEN",
-play1:"Sonne aus Asche",play2:"Unerfüllte Ängste",
-assistantDesign:"Assistenz Bühnenbild & Licht",setLighting:"Bühnenbild & Licht",setDesign:"Bühnenbild",
-award1:"35. Internationales Fajr-Theaterfestival",award1Desc:"Auswahl im Bereich Bühnenbild.",
-award2:"Theater der Stadt Festival",award2Desc:"Auswahl für das Bühnenbild von Station.",
-award3:"Shahr-o-Mehr Festival / Kashan",award3Desc:"Auswahl für das Bühnenbild von Economic Intelligence.",
-labEyebrow:"05 / VISUAL DEVELOPMENT LAB",labHeading:"Zwei Wege,<br>Räume zu denken.",
-handmadeLabel:"01 / HANDGEZEICHNET",aiLabel:"02 / KI-UNTERSTÜTZT",
-handmadeTitle:"Handgezeichnete Studien",handmadeDesc:"Zeichnung, Skizze, räumliches Denken und Materialstudien. Die erste Sprache eines Entwurfs entsteht oft von Hand.",
-aiTitle:"KI-unterstützte visuelle Entwicklung",aiDesc:"Erkundung von Atmosphäre, Licht, visuellen Referenzen und alternativen Richtungen mit generativen Werkzeugen — innerhalb eines vom Designer gesteuerten Prozesses.",
-practiceEyebrow:"06 / ARBEITSBEREICHE",practiceHeading:"Vom Konzept<br>zur Erfahrung.",
-practice1:"Szenografie",practice1Desc:"Theater / Performance / Bühnenräume",
-practice2:"Production Design",practice2Desc:"Film / Fernsehen / Werbesets",
-practice3:"Visuelle Entwicklung",practice3Desc:"Konzepte / Referenzen / Bildsprache",
-practice4:"Raumgestaltung",practice4Desc:"Installation / Events / Umgebungen",
-practice5:"Setbau",practice5Desc:"Materialien / Fertigung / Produktion",
-practice6:"Licht & Atmosphäre",practice6Desc:"Licht / Textur / räumliche Stimmung",
-practice7:"Grafik- & visuelles Design",practice7Desc:"Identität / visuelle Kommunikation",
-practice8:"3D- & digitale Räume",practice8Desc:"3D-Umgebungen / digitale Erlebnisse",
-contactEyebrow:"LASS UNS EINE WELT ERSCHAFFEN",contactHeading:"Hast du eine<br>Geschichte?",
-contactDesc:"Für Kooperationen, akademische Möglichkeiten und kreative Projekte freue ich mich auf deine Nachricht.",
-contactLink:"KONTAKT AUFNEHMEN ↗"
-}
-};
-
-/* LANGUAGE */
-function setLanguage(lang){
-const dict=translations[lang]||translations.en;
-document.documentElement.lang=lang;
-document.documentElement.dir=lang==="fa"?"rtl":"ltr";
-document.body.dir=lang==="fa"?"rtl":"ltr";
-
-document.querySelectorAll("[data-i18n]").forEach(el=>{
-const key=el.dataset.i18n;
-if(Object.prototype.hasOwnProperty.call(dict,key)){
-el.innerHTML=dict[key];
-}
-});
-
-document.querySelectorAll("[data-lang]").forEach(btn=>{
-btn.classList.toggle("active",btn.dataset.lang===lang);
-});
-try{localStorage.setItem("portfolio-language",lang)}catch(e){}
-}
-
-document.querySelectorAll("[data-lang]").forEach(btn=>{
-btn.addEventListener("click",()=>setLanguage(btn.dataset.lang));
-});
-
-let savedLanguage="en";
-try{savedLanguage=localStorage.getItem("portfolio-language")||"en"}catch(e){}
-setLanguage(savedLanguage);
-
-/* MOBILE NAVIGATION */
-const menuToggle=document.getElementById("menuToggle");
-const navLinks=document.getElementById("navLinks");
-
-menuToggle.addEventListener("click",()=>{
-const opened=navLinks.classList.toggle("open");
-menuToggle.setAttribute("aria-expanded",String(opened));
-});
-
-navLinks.querySelectorAll("a").forEach(link=>{
-link.addEventListener("click",()=>{
-navLinks.classList.remove("open");
-menuToggle.setAttribute("aria-expanded","false");
-});
-});
-
-/* YOUTUBE INLINE PLAYER */
-document.querySelectorAll(".work-thumb[data-video-id]").forEach(button=>{
-button.addEventListener("click",()=>{
-if(button.dataset.playing==="true")return;
-
-const videoId=button.dataset.videoId;
-const iframe=document.createElement("iframe");
-
-iframe.src="https://www.youtube-nocookie.com/embed/"+
-encodeURIComponent(videoId)+
-"?autoplay=1&rel=0&modestbranding=1";
-
-iframe.title="YouTube video player";
-iframe.allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
-iframe.allowFullscreen=true;
-iframe.loading="eager";
-iframe.referrerPolicy="strict-origin-when-cross-origin";
-
-button.dataset.playing="true";
-button.replaceChildren(iframe);
-button.style.cursor="default";
-button.setAttribute("aria-label","YouTube video player");
-});
-});
-
-/* SCROLL REVEAL */
-const revealObserver=new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-entry.target.classList.add("visible");
-revealObserver.unobserve(entry.target);
-}
-});
-},{threshold:.12});
-
-document.querySelectorAll(".reveal").forEach(el=>revealObserver.observe(el));
-
-/* SCROLL-DRIVEN VISUAL SEQUENCE */
-const steps=document.querySelectorAll(".story-step");
-const arts=document.querySelectorAll(".story-art");
-
-const stepObserver=new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-const index=entry.target.dataset.step;
-steps.forEach(step=>step.classList.remove("active"));
-arts.forEach(art=>art.classList.remove("active"));
-entry.target.classList.add("active");
-const activeArt=document.querySelector('.story-art[data-art="'+index+'"]');
-if(activeArt)activeArt.classList.add("active");
-}
-});
-},{rootMargin:"-35% 0px -35% 0px",threshold:0});
-
-steps.forEach(step=>stepObserver.observe(step));
-
-/* CURRENT YEAR */
-document.getElementById("year").textContent=new Date().getFullYear();
-</script>
-</body>
-</html>
+        <div class="stats">
+          <div class="stat"><strong>30+</strong><span data-i18n="stat1">COMMERCIAL PROJECTS</span></div>
+          <div class="stat"><strong>10+</strong><span data-i18n="stat2">YEARS IN DESIGN</span></div>
+          <div class="stat"><strong>03</strong><span data-i18n="stat3">SHORT FILMS</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
